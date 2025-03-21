@@ -3,7 +3,7 @@ from turtle import *
 from freegames import path
 
 car = path('car.gif')
-tiles = list(range(32)) * 2
+tiles = list("ABCDEFGHIJKLMNÑOPQRSTUVWXYZ!#$%&")*2 #Se cambian los elementos por letras y símbolos
 state = {'mark': None, 'taps': 0}  # Agregar contador de taps
 hide = [True] * 64
 
@@ -57,14 +57,14 @@ def draw():
             x, y = xy(count)
             square(x, y)
 
-    # Dibuja el número en la casilla seleccionada
+    # Dibuja el número en la casilla seleccionada y lo centra dentro de esta
     mark = state['mark']
     if mark is not None and hide[mark]:
         x, y = xy(mark)
         up()
-        goto(x + 2, y)
+        goto(x + 25, y)
         color('black')
-        write(tiles[mark], font=('Arial', 30, 'normal'))
+        write(tiles[mark], font=('Arial', 30, 'normal'), align = "center")
 
     # Mostrar número de taps (Dibujarlo después de las casillas para que quede al frente)
     up()
